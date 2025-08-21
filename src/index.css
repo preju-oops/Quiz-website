@@ -1,0 +1,10 @@
+.my-info {
+  background: rgb(134, 112, 134);
+  padding: 10%;
+
+}
+
+p,
+input {
+  margin: 15px;
+}

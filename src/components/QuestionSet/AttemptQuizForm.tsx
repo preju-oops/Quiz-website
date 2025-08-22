@@ -85,7 +85,7 @@ function CreateQuestions() {
   });
 
   if (!fields.length) {
-    return <p>No questions available ❌</p>;
+    return <p>No questions available </p>;
   }
 
   return (

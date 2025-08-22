@@ -15,7 +15,7 @@ function Navbar() {
     <header className="navbar">
       {/* Left Section */}
       <div className="navbar-left">
-        <h2 className="logo">🎓 QuizApp</h2>
+        <h2 className="logo">Quizzy</h2>
         <NavLink to="/" className="nav-link">
           Home
         </NavLink>

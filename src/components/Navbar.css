@@ -2,51 +2,92 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #1e293b; /* dark slate */
+  background: linear-gradient(90deg, #354969, #132245); /* gradient dark slate */
   padding: 1rem 2rem;
-  color: white;
+  color: rgba(140, 201, 240, 0.811);
+  box-shadow: 0 2px 8px rgba(245, 242, 242, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
   margin-right: 1.5rem;
   font-weight: bold;
-  color: #facc15; /* yellow accent */
+  font-size: 1.3rem;
+  color: #bf60d0; 
+  text-shadow: 0 0 8px rgba(250, 204, 21, 0.6); /* glow */
 }
 
 .navbar-left,
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .nav-link {
   text-decoration: none;
-  color: #e2e8f0; /* gray text */
-  transition: color 0.2s ease;
+  color: #91baf1;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #facc15; /* yellow hover */
+  color: #919eea; /* yellow hover */
+  transform: translateY(-2px);
 }
 
 .nav-link.active {
-  border-bottom: 2px solid #facc15;
-  padding-bottom: 2px;
+  color: #919eea;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background: #d6b2df;
+  border-radius: 2px;
 }
 
 .logout-btn,
 .login-btn {
-  background: #facc15;
+  background:#6a79cb;
   border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.3s ease;
+    color: black; 
+  
 }
 
 .logout-btn:hover,
 .login-btn:hover {
-  background: #d97706; /* darker yellow */
+  background: #c694f3; 
+  transform: scale(1.05);
+}
+
+.register-btn {
+  background: #6a79cb;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;  
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+    color: black; 
+}
+
+
+.register-btn:hover {
+  background: #c694f3;
+  transform: scale(1.05);
+  color: black; 
 }

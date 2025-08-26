@@ -6,52 +6,52 @@ export interface IAuthUserList {
   _id: string;
   name: string;
   email: string;
-  password: string;
   role: string;
-  __v: number;
 }
 
 function AuthHomePage() {
   const [users, setUsers] = useState<IAuthUserList[]>([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
+
     async function fetchData() {
-      axios
-        .get("http://localhost:3000/users/list", {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        })
-        .then((response) => {
-          const userList: IAuthUserList[] = response?.data?.users || [];
-          setUsers(userList);
-        })
-        .catch((error) => {
-  console.log("error object =>", error);
-  console.log("error response =>", error?.response);
-  console.log("error message =>", error?.message);
-  const errors = error?.response?.data?.message || error?.message || "An error occurred";
-  alert(errors);
+      try {
+        const response = await axios.get("http://localhost:3000/api/users/list", {
+  headers: {
+    Authorization: `Bearer ${accessToken}`,
+  },
 });
 
+
+        setUsers(response.data.users || []);
+      } catch (error: any) {
+        console.error("Error fetching users => ", error);
+        setErrorMessage(
+          error?.response?.data?.message ||
+            "Failed to load users. Please log in again."
+        );
+      }
     }
 
     fetchData();
   }, []);
 
+  if (errorMessage) {
+    return <p className="text-red-500">{errorMessage}</p>;
+  }
+
   return (
     <div>
-      {users?.map((user, index) => {
-        return (
-          <MyInformation
-            key={index}
-            id={user?._id}
-            name={user?.name}
-            email={user?.email}
-          />
-        );
-      })}
+      {users.map((user) => (
+        <MyInformation
+          key={user._id}
+          id={user._id}
+          name={user.name}
+          email={user.email}
+        />
+      ))}
     </div>
   );
 }

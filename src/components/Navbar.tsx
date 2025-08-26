@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { AuthContext, type IAuthContext } from "../App";
 import { useContext } from "react";
-import "./Navbar.css"; // 👈 add this line
+import "./Navbar.css";
 
 function Navbar() {
   const { isAuth } = useContext<IAuthContext>(AuthContext);
@@ -42,9 +42,10 @@ function Navbar() {
           </button>
         ) : (
           <>
-            <NavLink to="/register" className="nav-link">
-              Register
-            </NavLink>
+          <NavLink to="/register">
+  <button className="register-btn">Register</button>
+</NavLink>
+
             <NavLink to="/login" className="nav-link login-btn">
               Login
             </NavLink>

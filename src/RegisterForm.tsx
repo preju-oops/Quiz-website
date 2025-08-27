@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import "./RegisterForm.css";  
+import "./RegisterForm.css"; 
 
 function RegisterForm() {
   const [name, setName] = useState("");
@@ -66,8 +66,6 @@ function RegisterForm() {
         </div>
 
         <button type="submit">Register</button>
-
-
       </form>
     </>
   );

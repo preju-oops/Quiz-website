@@ -43,6 +43,8 @@ function App() {
   console.log("auth => ", authState);
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
+ 
+
     if (!accessToken) {
       setIsLoading(false);
       return;
